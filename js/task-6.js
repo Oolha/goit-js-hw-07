@@ -14,14 +14,16 @@ createValue.addEventListener('click', function () {
 
 function createBoxes(amount) {
   divValue.innerHTML = '';
+  const boxesArray = [];
   for (let i = 0; i < amount; i++) {
-    const boxes = document.createElement('div');
-    boxes.style.width = `${30 + i * 10}px`;
-    boxes.style.height = `${30 + i * 10}px`;
-    boxes.style.backgroundColor = getRandomHexColor();
-    divValue.appendChild(boxes);
+    const box = document.createElement('div');
+    box.style.width = `${30 + i * 10}px`;
+    box.style.height = `${30 + i * 10}px`;
+    box.style.backgroundColor = getRandomHexColor();
+    boxesArray.push(box);
 
   }
+  divValue.append(...boxesArray);
 }
 function getRandomHexColor() {
   return `#${Math.floor(Math.random() * 16777215)
